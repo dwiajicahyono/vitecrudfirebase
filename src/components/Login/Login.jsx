@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
+import { Link } from 'react-router-dom';
 
 const Login = ({ setIsAuthenticated }) => {
 
@@ -84,6 +85,7 @@ const Login = ({ setIsAuthenticated }) => {
     <div className="small-container">
       <form onSubmit={handleLogin}>
         <h1>Admin Login</h1>
+        <p>Masih beta ya kawan mohon bersabar untuk kelanjutan tampilan 😊</p>
         <label htmlFor="email">Email</label>
         <input
           id="email"
@@ -98,12 +100,12 @@ const Login = ({ setIsAuthenticated }) => {
           id="password"
           type="password"
           name="password"
-          placeholder="qwerty"
+          placeholder="masukkan password"
           value={password}
           onChange={e => setPassword(e.target.value)}
         />
         <input style={{ marginTop: '12px' }} type="submit" value="Login" name="Login" />
-        <input style={{ marginTop: '12px', marginLeft: '12px', backgroundColor: 'black' }} type="submit" value="Register" name="Register" />
+        <Link to='/register'><input style={{ marginTop: '12px', marginLeft: '12px', backgroundColor: 'black' }} type="button" value="Register" name="Register" /></Link>
       </form>
     </div>
   );

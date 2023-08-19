@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/prop-types */
 import React, { useState } from "react";
 import ImageModal from "./ImageModal";
 
@@ -21,7 +19,7 @@ const Table = ({ employees, handleEdit, handleDelete }) => {
       <table className="striped-table">
         <thead>
           <tr>
-            <th>Id Barang</th>
+            <th>No</th>
             <th>Nama Barang</th>
             <th>Gambar</th>
             <th>Jumlah</th>
@@ -36,7 +34,7 @@ const Table = ({ employees, handleEdit, handleDelete }) => {
           {employees ? (
             employees.map((employee, i) => (
               <tr key={employee.id}>
-                <td>{employee.id}</td>
+                <td>{i + 1}.</td>
                 <td>{employee.firstName}</td>
                 <td>
                   <div className="w-20">
@@ -49,7 +47,7 @@ const Table = ({ employees, handleEdit, handleDelete }) => {
                   </div>
                 </td>
                 <td>{employee.salary}</td>
-                <td>{employee.date} </td>
+                <td>{employee.date}</td>
                 <td>{employee.lastName}</td>
                 <td className="text-right">
                   <button

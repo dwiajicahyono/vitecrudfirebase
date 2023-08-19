@@ -1,22 +1,21 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/prop-types */
-import React, { useState } from 'react';
-import Swal from 'sweetalert2';
+import React, { useState } from "react";
+import Swal from "sweetalert2";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { Link } from "react-router-dom";
 
-const Register = ({ setIsAuthenticated }) => {
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
-  const [confirmPassword, setConfirmPassword] = useState();
+const RegisterPage = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const handleRegister = async (e) => {
     e.preventDefault();
 
     if (password !== confirmPassword) {
       Swal.fire({
-        icon: 'error',
-        title: 'Passwords do not match',
-        text: 'Please make sure the passwords match.',
+        icon: "error",
+        title: "Passwords do not match",
+        text: "Please make sure the passwords match.",
       });
       return;
     }
@@ -25,63 +24,69 @@ const Register = ({ setIsAuthenticated }) => {
 
     try {
       await createUserWithEmailAndPassword(auth, email, password);
-      Swal.fire({
-        timer: 1500,
-        showConfirmButton: false,
-        willOpen: () => {
-          Swal.showLoading();
-        },
-        willClose: () => {
-          setIsAuthenticated(true);
+      const popupContent = `
+    <div>
+      <p>Registration Successful! You can now <a href="/admin" id="login-link">login</a>.</p>
+    </div>
+  `;
 
-          Swal.fire({
-            icon: 'success',
-            title: 'Successfully registered and logged in!',
-            showConfirmButton: false,
-            timer: 1500,
-          });
+      Swal.fire({
+        icon: "success",
+        title: "Registration Successful",
+        html: popupContent,
+        showConfirmButton: false,
+        didOpen: () => {
+          const loginLink = document.getElementById("login-link");
+          if (loginLink) {
+            loginLink.addEventListener("click", () => {
+              Swal.close();
+            });
+          }
         },
       });
     } catch (error) {
-      console.log(error);
+      Swal.fire({
+        icon: "error",
+        title: "Registration Failed",
+        text: "An error occurred during registration. Please try again.",
+      });
     }
   };
 
   return (
-    <div className="small-container">
+    <div className="register-container small-container">
+      <h1>Register</h1>
+      <p>Masih beta ya kawan mohon bersabar untuk kelanjutan tampilan 😊</p>
       <form onSubmit={handleRegister}>
-        <h1>Admin Registration</h1>
         <label htmlFor="email">Email</label>
         <input
-          id="email"
           type="email"
-          name="email"
-          placeholder="admin@example.com"
+          id="email"
           value={email}
-          onChange={e => setEmail(e.target.value)}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <label htmlFor="password">Password</label>
         <input
-          id="password"
           type="password"
-          name="password"
-          placeholder="qwerty"
+          id="password"
           value={password}
-          onChange={e => setPassword(e.target.value)}
+          onChange={(e) => setPassword(e.target.value)}
         />
         <label htmlFor="confirmPassword">Confirm Password</label>
         <input
-          id="confirmPassword"
           type="password"
-          name="confirmPassword"
-          placeholder="qwerty"
+          id="confirmPassword"
           value={confirmPassword}
-          onChange={e => setConfirmPassword(e.target.value)}
+          onChange={(e) => setConfirmPassword(e.target.value)}
         />
-        <input style={{ marginTop: '12px' }} type="submit" value="Register" name="Register" />
+        <button type="submit">Register</button>
       </form>
+      <p>
+      Already have an account?{" "}
+      <Link to="/admin">Login here</Link>
+    </p>
     </div>
   );
 };
 
-export default Register;
+export default RegisterPage;

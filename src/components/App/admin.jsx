@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 import Login from '../Login/Login';
 import Dashboard from '../Dashboard/Dashboard';
 
-const App = () => {
+const Admin = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(null);
 
   useEffect(() => {
@@ -23,4 +23,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Admin;

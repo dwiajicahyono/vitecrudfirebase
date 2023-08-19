@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 
 import { collection, addDoc } from "firebase/firestore"; 
 import { db } from '../../config/firestore'
+import { Link } from 'react-router-dom';
 
 
 const Add = ({ employees, setEmployees, setIsAdding, getEmployees }) => {
@@ -77,7 +78,10 @@ const Add = ({ employees, setEmployees, setIsAdding, getEmployees }) => {
           value={lastName}
           onChange={e => setLastName(e.target.value)}
         />
-        <label htmlFor="email">Link Gambar</label>
+       
+        <label htmlFor="email">Link Gambar <br/><Link to="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" className=' font-thin'>Tutorial menambahkan link gambar</Link></label>
+        
+        
         <input
           id="email"
           type="text"

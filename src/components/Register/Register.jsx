@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import Swal from "sweetalert2";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";

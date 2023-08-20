@@ -14,10 +14,10 @@ const App = () => {
 
   
         <Routes>
-          <Route exact path='/' element={<Homepage />} />
-          <Route exact path='/admin' element={<Admin />} />
-          <Route exact path='/register' element={<Register />} />
-          <Route exact path='/about' element={<About />} />
+          <Route path='/' element={<Homepage />} />
+          <Route path='/admin' element={<Admin />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/about' element={<About />} />
         </Routes>
       </div>
     </BrowserRouter>

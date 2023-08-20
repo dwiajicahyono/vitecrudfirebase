@@ -79,7 +79,7 @@ const Add = ({ employees, setEmployees, setIsAdding, getEmployees }) => {
           onChange={e => setLastName(e.target.value)}
         />
        
-        <label htmlFor="email">Link Gambar <br/><Link to="/about" target="_blank" className=' font-thin'>Tutorial menambahkan link gambar</Link></label>
+        <label htmlFor="email">Link Gambar <br/><Link to="https://youtu.be/dm8SjksuvoI" target="_blank" className=' font-thin'>Tutorial menambahkan link gambar</Link></label>
         
         
         <input

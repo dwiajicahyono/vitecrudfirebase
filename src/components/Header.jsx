@@ -84,7 +84,7 @@ const Header = () => {
         >
           Login
         </Link>
-        <Link
+        <Link 
           to="/register"
           className="px-4 py-2 text-white bg-red-500 rounded-md shadow hover:bg-yellow-500 hover:text-white"
         >

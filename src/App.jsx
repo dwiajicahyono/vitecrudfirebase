@@ -5,6 +5,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Homepage from './pages/Homepage';
 import Register from './components/Register/Register';
 import About from './pages/About';
+import Tester from './pages/Tester';
+import AddItem from './pages/AddItem';
 
 
 const App = () => {
@@ -15,6 +17,8 @@ const App = () => {
   
         <Routes>
           <Route path='/' element={<Homepage />} />
+          <Route path='/additem' element={<AddItem />} />
+          <Route path='/tester' element={<Tester />} />
           <Route path='/admin' element={<Admin />} />
           <Route path='/register' element={<Register />} />
           <Route path='/about' element={<About />} />

@@ -12,7 +12,7 @@ const Homepage = () => {
     <div className='bg-red-500 lg:pb-0 pb-96'>
     <Header/>
     <section className="flex justify-center items-center h-screen container mx-auto px-4 md:flex-row flex-col ">
-      <div className="flex-1 px-8 text-white text-center md:text-left ">
+      <div className="flex-1 px-8 text-white text-center md:text-left">
         <h1 className="lg:text-7xl text-4xl font-bold mb-4 text-white md:pt-0 pt-96">
           Manage Your Inventory with Ease
         </h1>

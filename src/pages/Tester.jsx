@@ -3,14 +3,17 @@ import React, { useState, useEffect } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../config/firestore";
 import ImageModal from "../components/Dashboard/ImageModal";
+import ImageViewDashboard from "../components/ImageViewDashboard";
 
 const Tester = () => {
   const [items, setItems] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [selectedImageUrl, setSelectedImageUrl] = useState("");
+  const [selectedItem, setSelectedItem] = useState(null);
 
-  const openModal = (imageUrl) => {
-    setSelectedImageUrl(imageUrl);
+  const openModal = (item) => {
+    setSelectedItem(item);
+    setSelectedImageUrl(item.linkGambar);
     setShowModal(true);
   };
 
@@ -22,28 +25,26 @@ const Tester = () => {
     const fetchData = async () => {
       const querySnapshot = await getDocs(collection(db, "items"));
       const fetchedItems = [];
-
       querySnapshot.forEach((doc) => {
-        const itemData = doc.data(); // Get the data from the document
+        const itemData = doc.data();
         fetchedItems.push({
           id: doc.id,
-          namaBarang: itemData.namaBarang, // Make sure property names match
+          namaBarang: itemData.namaBarang,
           linkGambar: itemData.linkGambar,
           jumlah: itemData.jumlah,
           tanggalMasuk: itemData.tanggalMasuk,
+          namaPeminjam: itemData.namaPeminjam,
         });
       });
-
       setItems(fetchedItems);
     };
-
     fetchData();
   }, []);
 
   return (
     <div className="px-10">
       <h1>Tester</h1>
-      <table className="striped-table ">
+      <table className="striped-table">
         <thead>
           <tr>
             <th>No</th>
@@ -51,10 +52,11 @@ const Tester = () => {
             <th>Gambar</th>
             <th>Jumlah Tersedia</th>
             <th>Tanggal Masuk</th>
+            <th>Aksi</th> {/* Kolom untuk tombol "View" */}
           </tr>
         </thead>
         <tbody>
-          {items ? (
+          {items.length > 0 ? (
             items.map((item, i) => (
               <tr key={item.id}>
                 <td>{i + 1}.</td>
@@ -64,24 +66,31 @@ const Tester = () => {
                     <img
                       src={item.linkGambar}
                       alt="Modal Image"
-                      className="cursor-pointer max-w-full"
-                      onClick={() => openModal(item.linkGambar)}
+                     
+
                     />
                   </div>
                 </td>
                 <td>{item.jumlah}</td>
                 <td>{item.tanggalMasuk}</td>
+                <td>
+                  <button onClick={() => openModal(item)}>View</button>
+                </td>
               </tr>
             ))
           ) : (
             <tr>
-              <td colSpan={5}>No items available</td>
+              <td colSpan={6}>No items available</td>
             </tr>
           )}
         </tbody>
       </table>
       {showModal && (
-        <ImageModal imageUrl={selectedImageUrl} onClose={closeModal} />
+        <ImageViewDashboard 
+          imageUrl={selectedImageUrl} 
+          onClose={closeModal} 
+          item={selectedItem}
+        />
       )}
     </div>
   );

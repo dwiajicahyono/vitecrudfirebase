@@ -17,3 +17,13 @@ user new request saja
 admin ada dua role
 1. nambah data
 2. edit
+
+field
+namaBarang
+linkGambar
+jumlah
+tanggalMasuk
+digunakanUntuk
+jumlahDipinjam
+namaPeminjam
+tanggalKeluar

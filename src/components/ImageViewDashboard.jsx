@@ -6,7 +6,7 @@ function ImageViewDashboard({ imageUrl, onClose,  item}) {
   return (
     <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50">
       <div className="bg-white p-4 rounded-lg">
-        <img src={imageUrl} alt="Modal Image" className="w-96" />
+        <img src={imageUrl} alt="Modal Image" className="w-24" />
         <p>Nama Barang: {item.namaBarang}</p>
         <p>Jumlah Tersedia: {item.jumlah}</p>
         <p>Tanggal Masuk: {item.tanggalMasuk}</p>

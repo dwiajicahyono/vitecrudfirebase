@@ -2,14 +2,15 @@
 import React, { useState, useEffect } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../config/firestore";
-import ImageModal from "../components/Dashboard/ImageModal";
 import ImageViewDashboard from "../components/ImageViewDashboard";
+import SearchBox from "../components/SearchBox"; // Impor komponen SearchBox
 
 const Tester = () => {
   const [items, setItems] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [selectedImageUrl, setSelectedImageUrl] = useState("");
   const [selectedItem, setSelectedItem] = useState(null);
+  const [searchTerm, setSearchTerm] = useState(''); // State untuk kata kunci pencarian
 
   const openModal = (item) => {
     setSelectedItem(item);
@@ -41,9 +42,17 @@ const Tester = () => {
     fetchData();
   }, []);
 
+  const filteredItems = items.filter(item =>
+    item.namaBarang.toLowerCase().includes(searchTerm.toLowerCase())
+  ); // fungsi cari
+
   return (
     <div className="px-10">
       <h1>Tester</h1>
+
+      {/* Menggunakan Komponen SearchBox */}
+      <SearchBox searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+
       <table className="striped-table">
         <thead>
           <tr>
@@ -52,12 +61,12 @@ const Tester = () => {
             <th>Gambar</th>
             <th>Jumlah Tersedia</th>
             <th>Tanggal Masuk</th>
-            <th>Aksi</th> {/* Kolom untuk tombol "View" */}
+            <th>Aksi</th>
           </tr>
         </thead>
         <tbody>
-          {items.length > 0 ? (
-            items.map((item, i) => (
+          {filteredItems.length > 0 ? (
+            filteredItems.map((item, i) => (
               <tr key={item.id}>
                 <td>{i + 1}.</td>
                 <td>{item.namaBarang}</td>
@@ -66,8 +75,6 @@ const Tester = () => {
                     <img
                       src={item.linkGambar}
                       alt="Modal Image"
-                     
-
                     />
                   </div>
                 </td>

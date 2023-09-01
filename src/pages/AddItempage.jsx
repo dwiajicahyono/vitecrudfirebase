@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import AddItem from "../components/SuperAdminHandle/AddItem";
 import ViewItem from "../components/SuperAdminHandle/ViewItem";

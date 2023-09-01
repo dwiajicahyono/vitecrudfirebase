@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 import { collection, addDoc } from 'firebase/firestore';

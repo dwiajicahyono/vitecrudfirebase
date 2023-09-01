@@ -11,8 +11,8 @@ const EditItemPopup = ({ item, onClose }) => {
    const [imageLink, setImageLink] = useState(item.linkGambar);
    const [quantity, setQuantity] = useState(item.jumlah);
    const [useFor, setUseFor] = useState(item.digunakanUntuk);
-  const [itemsBorrowed, setItemBorrowed] = useState(item.jumlahDipinjam);
-  const [borrowedName, setBorrowedName] = useState(item.namaPeminjam);
+   const [itemsBorrowed, setItemBorrowed] = useState(item.jumlahDipinjam);
+   const [borrowedName, setBorrowedName] = useState(item.namaPeminjam);
    const [outDate, setOutDate] = useState(item.tanggalKeluar);
 
   const handleEditItem = async () => {

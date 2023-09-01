@@ -8,6 +8,7 @@ import About from './pages/About';
 import Tester from './pages/Tester';
 import AddItempage from './pages/AddItempage';
 import ItemList from './components/itemlisttest';
+import ShowRequest from './components/Request/ShowRequest';
 
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
   
         <Routes>
           <Route path='/' element={<Homepage />} />
+          <Route path='/showreq' element={<ShowRequest />} />
           <Route path='/additem' element={<AddItempage />} />
           <Route path='/tester' element={<Tester />} />
           <Route path='/admin' element={<Admin />} />

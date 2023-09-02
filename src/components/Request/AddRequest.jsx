@@ -60,7 +60,7 @@ const AddRequestForm = () => {
       </label>
       <label>
         Keperluan:
-        <input type="text" value={keperluan} onChange={(e) => setKeperluan(e.target.value)} required />
+        <textarea type="text" value={keperluan} onChange={(e) => setKeperluan(e.target.value)} required className=' w-5 h-20'/>
       </label>
       <label>
         Jumlah Dipinjam:

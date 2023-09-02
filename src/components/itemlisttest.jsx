@@ -34,9 +34,11 @@ const ItemList = () => {
       <h1>Daftar Item</h1>
       <ul>
         {items.map(item => (
-          <li key={item.id} onClick={() => handleItemClick(item)} >
+          
+          <li key={item.id}  >
           <p className=' cursor-pointer hover:text-blue-500'> {item.namaBarang}</p>
-           
+         
+           <button onClick={() => handleItemClick(item)}>Tambah Request</button>
           </li>
         ))}
       </ul>

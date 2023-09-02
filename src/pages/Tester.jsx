@@ -4,6 +4,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../config/firestore";
 import ImageViewDashboard from "../components/ImageViewDashboard";
 import SearchBox from "../components/SearchBox"; // Impor komponen SearchBox
+import AddRequestForm from "../components/Request/AddRequest";
 
 const Tester = () => {
   const [items, setItems] = useState([]);
@@ -11,6 +12,8 @@ const Tester = () => {
   const [selectedImageUrl, setSelectedImageUrl] = useState("");
   const [selectedItem, setSelectedItem] = useState(null);
   const [searchTerm, setSearchTerm] = useState(''); // State untuk kata kunci pencarian
+  const [showAddRequestModal, setShowAddRequestModal] = useState(false);
+
 
   const openModal = (item) => {
     setSelectedItem(item);
@@ -45,10 +48,40 @@ const Tester = () => {
   const filteredItems = items.filter(item =>
     item.namaBarang.toLowerCase().includes(searchTerm.toLowerCase())
   ); // fungsi cari
+  const openAddRequestModal = () => {
+    setShowAddRequestModal(true);
+  };
+  
+  const closeAddRequestModal = () => {
+    setShowAddRequestModal(false);
+  };
+  
 
   return (
     <div className="px-10">
+    {showAddRequestModal && (
+      <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50">
+        <div
+          className="bg-black opacity-50 absolute top-0 left-0 w-full h-full"
+          onClick={closeAddRequestModal}
+        ></div>
+        <div className="bg-white p-8 w-3/4 max-w-xl rounded-lg shadow-md relative z-60 overflow-y-auto max-h-[92%] my-20 ">
+          <AddRequestForm />
+          <button className="absolute top-2 right-2" onClick={closeAddRequestModal}>
+            X
+          </button>
+        </div>
+      </div>
+    )}
+    
       <h1>Tester</h1>
+      <button
+  className="bg-blue-500 text-white py-2 px-4 rounded mt-4"
+  onClick={openAddRequestModal}
+>
+  Request Barang
+</button>
+
 
       {/* Menggunakan Komponen SearchBox */}
       <SearchBox searchTerm={searchTerm} setSearchTerm={setSearchTerm} />

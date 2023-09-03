@@ -17,7 +17,7 @@ const AddItempage = () => {
   return (
     <div className="relative ">
       {isAuthenticated ? (
-        <>
+        <div className="mx-20">
           {isModalOpen && (
             <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50">
               <div
@@ -36,17 +36,23 @@ const AddItempage = () => {
             </div>
           )}
           <div className="px-9  justify-center items-center">
-            <h3>Tambah Item</h3>
-            <button
-              className="bg-blue-500 text-white py-2 px-4 rounded mt-4 "
-              onClick={() => setIsModalOpen(true)}
-            >
-              Add Item
-            </button>
-            <h3>Daftar Item</h3>
+          <div className="text-center">
+          <h3 className=" mt-10 text-green-900">Daftar Barang</h3>
+          <button
+          className="bg-green-500 border-green-500 hover:bg-blue-500 hover:border-blue-500 text-white py-4 px-7 rounded mt-4 "
+          onClick={() => setIsModalOpen(true)}
+        >
+          Tambah Barang
+        </button>
+          </div>
+            
+           
+           
+            <hr className="my-6 border-gray-500"/>
+
           </div>
           <ViewItem itemsUpdated={itemsUpdated} />
-        </>
+        </div>
       ) : (
         <PasswordCheck
           password={password}

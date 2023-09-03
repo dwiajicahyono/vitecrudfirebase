@@ -29,20 +29,24 @@ const PasswordCheck = ({ password, setPassword, onAuthenticate }) => {
   };
 
   return (
-    <div>
-      <h1>Masukkan password untuk mengakses Admin Tambah barang</h1>
-      <form onSubmit={handlePasswordCheck}>
+    <div className="flex h-screen bg-gray-200 items-center justify-center">
+    <div className="bg-white p-8 rounded-lg shadow-md w-96">
+      <h1 className="mb-4">Admin Login</h1>
+      <p className='text-gray-500 text-sm'>Masukkan password untuk mengakses Admin Tambah barang</p>
+      <form onSubmit={handlePasswordCheck} className="flex items-center gap-4">
         <input 
           type="password" 
           value={password} 
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Masukkan password"
+          className="border rounded py-2 px-3 flex-grow"
         />
-        <button type="submit">
-          Submit
+        <button type="submit" className="bg-blue-500 hover:bg-red-500 hover:border-red-500 text-white font-bold py-2 px-4">
+          Masuk
         </button>
       </form>
     </div>
+  </div>
   );
 };
 

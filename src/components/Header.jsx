@@ -79,16 +79,16 @@ const Header = () => {
       </div>
       <div className="hidden md:flex md:flex-row md:items-center space-x-2">
         <Link
-          to="/admin"
+          to="/dashboard"
           className="px-4 py-2 text-white bg-green-500 rounded-md shadow hover:bg-yellow-500 hover:text-white"
         >
-          Login
+          Dashboard
         </Link>
         <Link 
-          to="/register"
+          to="/request"
           className="px-4 py-2 text-white bg-red-500 rounded-md shadow hover:bg-yellow-500 hover:text-white"
         >
-          Register
+          Request
         </Link>
       </div>
     </div>

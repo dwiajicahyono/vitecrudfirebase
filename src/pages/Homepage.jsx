@@ -4,6 +4,8 @@ import React from 'react'
 import Header from '../components/Header';
 import { Link } from 'react-router-dom';
 import image from "../image/2.png"
+import Tester from './Tester';
+import Footer from '../components/Footer';
 
 
 const Homepage = () => {
@@ -21,8 +23,8 @@ const Homepage = () => {
         Streamline your lab's inventory management process <br className=' lg:block hidden'/>
         with our efficient and organized platform at Inventory Lab Telti.
         </p>
-        <Link to="/admin" className=" bg-blue-500 text-white py-4 lg:px-20 px-10 rounded-full text-lg hover:bg-green-500 hover:text-zinc-100">
-          Login
+        <Link to="about" className=" bg-blue-500 text-white py-4 lg:px-20 px-10 rounded-full text-lg hover:bg-green-500 hover:text-zinc-100">
+          About Us
         </Link>
       </div>
       <div className="md:order-first md:mt-8" >
@@ -33,8 +35,12 @@ const Homepage = () => {
         />
       </div>
     </section>
-    
     </div>
+    <section id='list' className='text-center h-screen px-8 mx-64'>
+    <h1 className='mt-20 mb-10'>List Barang</h1>
+    <Tester/>
+    </section>
+    <Footer/>
     </div>
   )
 }

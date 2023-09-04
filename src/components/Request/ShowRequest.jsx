@@ -12,6 +12,7 @@ const ShowRequest = () => {
   const [selectedItem, setSelectedItem] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
 
+
   const handleShowDetail = (item) => {
     setSelectedItem(item);
     setShowPopup(true);
@@ -38,6 +39,8 @@ const ShowRequest = () => {
 
     fetchItems();
   }, []);
+
+
 
   const handleDeleteItem = async (id) => {
     Swal.fire({
@@ -76,7 +79,9 @@ const ShowRequest = () => {
 
   return (
     <div>
-  <h1>Request Item</h1>
+  <h2>Request Item
+ 
+  </h2>
   {items.filter(item => item.id !== "1").length > 0 ? (
     <table>
       <thead>

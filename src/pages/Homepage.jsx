@@ -36,7 +36,7 @@ const Homepage = () => {
       </div>
     </section>
     </div>
-    <section id='list' className='text-center h-screen px-8 mx-64'>
+    <section className='text-center px-8 mx-40 mb-44'>
     <h1 className='mt-20 mb-10'>List Barang</h1>
     <Tester/>
     </section>

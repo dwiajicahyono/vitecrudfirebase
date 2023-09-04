@@ -63,16 +63,16 @@ const Header = () => {
           </li>
           <div className="mt-3 space-y-2 md:hidden inline-block">
           <Link
-          to="/admin"
+          to="/dashboard"
           className="inline-block w-full px-4 py-2 text-center text-white bg-green-500 rounded-md shadow hover:bg-yellow-500 hover:text-white"
         >
-          Sign in
+          Dashboard
         </Link>
         <Link
-          to="/register"
+          to="/request"
           className="inline-block w-full px-4 py-2 text-center text-white bg-red-500 rounded-md shadow hover:bg-yellow-500 hover:text-white"
         >
-          Sign up
+          Request
         </Link>
           </div>
         </ul>

@@ -39,7 +39,7 @@ const about = () => {
 
         <h1 className="pt-20 pb-6">Cara Menggunakan Website</h1>
   
-        <ReactPlayer url='https://youtu.be/dm8SjksuvoI' controls className='mb-60' alt='Thumbnail' width="100%" height="720px"
+        <ReactPlayer url='https://youtu.be/nSYdjyEWpl0' controls className='mb-60' alt='Thumbnail' width="100%" height="720px"
         />
       </section>
       <Footer/>

@@ -12,3 +12,18 @@ engkol
 
 **New Features Updates**
 Nama Barang, Link Gambar, Jumlah, Tanggal Masuk, Nama Peminjam, Jumlah Dipinjam, Tanggal Keluar, digunakan Untuk
+
+user new request saja 
+admin ada dua role
+1. nambah data
+2. edit
+
+field
+namaBarang
+linkGambar
+jumlah
+tanggalMasuk
+digunakanUntuk
+jumlahDipinjam
+namaPeminjam
+tanggalKeluar

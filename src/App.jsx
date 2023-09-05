@@ -1,12 +1,12 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
-import Admin from './components/App/admin'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Homepage from './pages/Homepage';
-import Register from './components/Register/Register';
+
 import About from './pages/About';
-import Tester from './pages/Tester';
-import AddItem from './pages/AddItem';
+import AddItempage from './pages/Dashboard';
+import RequestDashboard from './pages/RequestDashboard';
+
 
 
 const App = () => {
@@ -17,10 +17,8 @@ const App = () => {
   
         <Routes>
           <Route path='/' element={<Homepage />} />
-          <Route path='/additem' element={<AddItem />} />
-          <Route path='/tester' element={<Tester />} />
-          <Route path='/admin' element={<Admin />} />
-          <Route path='/register' element={<Register />} />
+          <Route path='/request' element={<RequestDashboard />} />
+          <Route path='/dashboard' element={<AddItempage />} />
           <Route path='/about' element={<About />} />
         </Routes>
       </div>

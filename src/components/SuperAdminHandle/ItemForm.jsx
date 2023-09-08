@@ -106,11 +106,12 @@ const ItemForm = ({
           </div>
           <div>
             <label>Keperluan</label>
-            <input
+            <textarea
               type="text"
               value={useFor}
               onChange={(e) => setUseFor(e.target.value)}
               required
+              className=' w-5 h-20'
               placeholder='isi "-" jika tidak ada yang meminjam'
             />
           </div>

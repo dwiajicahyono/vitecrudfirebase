@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import AddItem from "../components/SuperAdminHandle/AddItem";
 import ViewItem from "../components/SuperAdminHandle/ViewItem";
 import PasswordCheck from "../components/SuperAdminHandle/PasswordCheck";
+import { Link } from "react-router-dom";
 
 const AddItempage = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -39,11 +40,17 @@ const AddItempage = () => {
           <div className="text-center">
           <h3 className=" mt-10 text-green-900">Daftar Barang</h3>
           <button
-          className="bg-green-500 border-green-500 hover:bg-blue-500 hover:border-blue-500 text-white py-4 px-7 rounded mt-4 "
+          className="bg-green-500 border-green-500 hover:bg-blue-500 hover:border-blue-500 text-white py-4 px-7 rounded mt-4 mx-2"
           onClick={() => setIsModalOpen(true)}
         >
           Tambah Barang
         </button>
+        <Link to='/'>
+          <button
+          className="bg-red-500 border-red-500 hover:bg-blue-500 hover:border-blue-500 text-white py-4 px-7 rounded mt-4 mx-2"
+        >
+          Keluar
+        </button></Link>
           </div>
             
            

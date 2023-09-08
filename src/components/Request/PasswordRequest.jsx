@@ -10,10 +10,10 @@ const PasswordRequest = ({ password, setPassword, onAuthenticate }) => {
   const handlePasswordCheck = (e) => {
     e.preventDefault(); // mencegah perilaku bawaan form
 
-    if (password === import.meta.env.VITE_REACT_APP_SUPERADMIN_PASSWORD) {
+    if (password === import.meta.env.VITE_REACT_APP_SUPERREQUEST_PASSWORD) {
       Swal.fire({
         icon: 'success',
-        title: 'Selamat Datang Admin tambah barang',
+        title: 'Selamat Datang Admin Request',
         showConfirmButton: false,
         timer: 1500,
       });

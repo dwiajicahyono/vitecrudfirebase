@@ -103,11 +103,12 @@ const EditItem = (props) => {
                 </div>
             <div>
                     <label>Digunakan Untuk</label>
-                    <input
+                    <textarea
                       type="text"
                       value={updatedItem.digunakanUntuk}
                       onChange={e => setUpdatedItem({ ...updatedItem, digunakanUntuk: e.target.value })} 
                       required
+                      className=' w-5 h-20'
                     />
                 </div>
                 {/*tambah sini */}
